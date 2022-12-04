@@ -10,3 +10,7 @@ Heart report is an ai web app that aims to inform people and help doctors about 
 ## AI
 
 For the AI i simulated a SVM with keras we got satisfactory results but i believe a bigger dataset would help alot.
+
+## How to run
+
+make sure to have the correct .env and run `flask --app main run`
