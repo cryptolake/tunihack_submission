@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card bg-dark text-white">
+        <img class="card-img"
+            src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/06/485800-Heart-Disease-Facts-Statistics-and-You-1296x728-Header.png?h=1528"
+            alt="Card image">
+        <div class="card-img-overlay">
+            <h5 class="text-primary card-title h1">Your results:</h5>
+            {% if risk == 1 %}
+            <p class="h2 card-text text-success">Congratilations you have very low risk of heart disease</p>
+             <p class="h3 card-text">Your probability of having a cardiovascular disease are {{ pred }}%</p>
+            {% elif risk == 2 %}
+            <p class="h2 card-text text-warning">You are in medium risk</p>
+             <p class="h3 card-text">it is advised that you adopt a healthy lifestyle and check your doctor! your probability of having a cardiovascular disease are {{ pred }}%</p>
+            {% elif risk == 3 %}
+            <p class="h2 card-text text-warning">You are in high risk</p>
+              <p class="h3 card-text"> you need to have frequent doctor visits for your health and safety, your probability of having a cardiovascular disease are {{ pred }}%</p>
+            {% elif risk == 4 %}
+            <p class="h2 card-text text-danger">You are in very high risk </p>
+ <p class="h3 card-text">                it is advised that you go to a doctor to check for any underlying conditions as fast as possible, if you haven't checked in a while, your probability of having a cardiovascular disease are {{ pred }}%</p>
+            {% endif %}
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}
