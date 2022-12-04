@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask.helpers import url_for
 from ai import Predictor
 from config import app
+import json
 from db import Report
 
 predictor = Predictor('./ai/model')
@@ -19,7 +20,9 @@ def predict():
     resd = dict(request.form)
     report = Report(**resd)
     report.save()
-    pred = predictor.predict(resd)
+    d =json.loads(report.to_json())
+    d.pop('_id') 
+    pred = predictor.predict(d)
 
     if pred < 0.2:
         risk = 1
