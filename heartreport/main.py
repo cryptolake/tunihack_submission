@@ -20,8 +20,9 @@ def predict():
     resd = dict(request.form)
     report = Report(**resd)
     report.save()
-    d =json.loads(report.to_json())
+    d = json.loads(report.to_json())
     d.pop('_id') 
+    print(d)
     pred = predictor.predict(d)
 
     if pred < 0.2:
